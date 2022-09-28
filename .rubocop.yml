@@ -18,6 +18,10 @@ Metrics/BlockLength:
   Exclude:
     - 'lib/tasks/auto_annotate_models.rake'
 
+Layout/HashAlignment:
+  Exclude:
+    - 'lib/tasks/auto_annotate_models.rake'
+
 Style/Documentation:
   Enabled: false
 
