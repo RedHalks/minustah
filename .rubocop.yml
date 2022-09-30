@@ -22,6 +22,9 @@ Layout/HashAlignment:
   Exclude:
     - 'lib/tasks/auto_annotate_models.rake'
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 

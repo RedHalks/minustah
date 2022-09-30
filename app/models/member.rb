@@ -22,6 +22,8 @@ class Member < ApplicationRecord
 
   validates :kind, :state, presence: true
 
+  accepts_nested_attributes_for :person
+
   def name
     nickname || person.name
   end
