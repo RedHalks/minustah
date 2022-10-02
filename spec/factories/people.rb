@@ -13,6 +13,6 @@ FactoryBot.define do
   factory :person do
     name { Faker::Name.name }
     birthdate { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    blood_type { Person.blood_types.values.sample }
+    blood_type { Person.blood_types.keys.sample }
   end
 end
