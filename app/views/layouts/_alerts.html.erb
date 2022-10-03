@@ -21,8 +21,13 @@
 <% if alert %>
   <div class="alert alert-danger d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-    <div>
-      <%= alert %>
+    <div class="container">
+      <%= t('errors.template.body') %>
+      <div class="container">
+        <% alert.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

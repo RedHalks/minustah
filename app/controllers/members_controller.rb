@@ -15,7 +15,7 @@ class MembersController < ApplicationController
       redirect_to members_path
     else
       @member = result.member
-      flash[:alert] = result.message
+      flash[:alert] = @member.errors.map(&:full_message)
       render :new
     end
   end
