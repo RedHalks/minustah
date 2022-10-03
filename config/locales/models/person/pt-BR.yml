@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      person:
+        one: Pessoa
+        other: Pessoas
+
+    attributes:
+      person:
+        birthdate: Data de Nascimento
+        blood_type: Tipo Sanguíneo
+        name: Nome
+      person/blood_type:
+        a_plus: 'A+'
+        a_minus: 'A-'
+        b_plus: 'B+'
+        b_minus: 'B-'
+        o_plus: 'O+'
+        o_minus: 'O-'
+        ab_plus: 'AB+'
+        ab_minus: 'AB-'
+
+    errors:
+      messages:
+        person:
+          password_confirmation: Confimação de senha não confere

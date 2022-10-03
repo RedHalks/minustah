@@ -1,0 +1,24 @@
+<div class="row">
+  <%= form.fields_for @member.person || Person.new do |person_form| %>
+    <div class="col-md-6 mb-3">
+      <%= person_form.label :name, class: 'form-label' %>
+      <%= person_form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="col-md-6 mb-3">
+      <%= person_form.label :blood_type, class: 'form-label' %>
+      <%= form_select_enum(:blood_type, person_blood_type_options, person_form) %>
+    </div>
+  <% end %>
+  <div class="col-md-6 mb-3">
+    <%= form.label :nickname, class: 'form-label' %>
+    <%= form.text_field :nickname, class: 'form-control' %>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :kind, class: 'form-label' %>
+    <%= form_select_enum(:kind, member_kind_options, form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :state, class: 'form-label' %>
+    <%= form_select_enum(:state, member_state_options, form)%>
+  </div>
+</div>

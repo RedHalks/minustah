@@ -1,10 +1,7 @@
-<!-- inside app/views/home/index.html.erb -->
-<h1>Welcome, this is the home page</h1>  
-  
-<button type="button" 
-        class="btn btn-lg btn-danger" 
-        data-bs-toggle="popover" 
-        title="Popover title" 
-        data-bs-content="Amazing content, right ?">
-        Click to toggle popover
-</button>  
+<% content_for :title, t('.title') %>
+<h3><%= t('.title') %></h3>
+
+<%= form_with model: @member, url: { action: :create } do |form| %>
+  <%= render partial: 'form', locals: { form: form } %>
+  <%= form.submit "Create", :class  => "btn btn-md btn-primary" %>
+<% end %>
