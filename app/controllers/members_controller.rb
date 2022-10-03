@@ -23,6 +23,6 @@ class MembersController < ApplicationController
   private
 
   def permitted_params
-    params.require(:member).permit(:nickname, :kind, :state, person: [:name, :birthdate, :blood_type]).to_h
+    params.require(:member).permit(:nickname, :kind, :state, person: %i[name birthdate blood_type]).to_h
   end
 end
