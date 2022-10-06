@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   def success_notice
     model_class = self.class.name.sub(/Controller$/, '').classify.constantize
 

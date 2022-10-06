@@ -1,7 +1,9 @@
 <% content_for :title, t('.title') %>
 <h3><%= t('.title') %></h3>
 
+<fieldset class="span-12">
 <%= form_with model: @member, url: { action: :create } do |form| %>
   <%= render partial: 'form', locals: { form: form } %>
   <%= form.submit "Create", :class  => "btn btn-md btn-primary" %>
 <% end %>
+</fieldset>

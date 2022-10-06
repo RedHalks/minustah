@@ -1,6 +1,11 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.all
+    params[:q] ||= {}
+    params[:p] ||= {}
+    params[:s] ||= ['person_name asc']
+
+    @pagy, @members = pagy(Member.all, items: 10)
+    # MemberInteractor::List.call(params.permit!)
   end
 
   def new

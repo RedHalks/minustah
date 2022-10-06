@@ -54,6 +54,11 @@ gem 'bootsnap', require: false
 # Use Interactor as use cases
 gem 'interactor-rails', '~> 2.0'
 
+# Use Ransack for search and pagination
+gem 'ransack', '~> 3.2'
+
+gem 'pagy', '~> 5.10'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
