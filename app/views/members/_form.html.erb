@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form.fields_for @member.person || Person.new do |person_form| %>
+  <%= form.fields_for :person_attributes, @member.person || Person.new do |person_form| %>
     <div class="col-md-6 mb-3">
       <%= person_form.label :name, class: 'form-label' %>
       <%= person_form.text_field :name, class: 'form-control' %>

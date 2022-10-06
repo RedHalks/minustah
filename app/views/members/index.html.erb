@@ -2,15 +2,21 @@
 <h3><%= t('.title') %></h3>
 
 <div class="table-responsive">
-  <table class="table table-hover table-bordered  align-middle">
-    <thead class="table-primary">
+  <div class="btn-group mb-1" role="group" aria-label="tool_bar">
+    <a href="<%= new_member_path%>" class="btn btn-primary btn-sm">
+      <svg width="12" height="12" role="img"><use xlink:href="#plus"/></svg>
+      <%= t('helpers.new') %>
+    </a>
+  </div>
+  <table class="table table-hover table-bordered align-middle caption-top">
+    <thead class="table-light">
       <tr>
         <th scope="col"><%= Person.human_attribute_name('name') %></th>
         <th scope="col"><%= Person.human_attribute_name('blood_type') %></th>
         <th scope="col"><%= Member.human_attribute_name('nickname') %></th>
         <th scope="col"><%= Member.human_attribute_name('kind') %></th>
         <th scope="col"><%= Member.human_attribute_name('state') %></th>
-        <th scope="col">Action</th>
+        <th scope="col"><%= t('helpers.actions') %></th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -21,7 +27,14 @@
           <td><%= member.nickname %></td>
           <td><%= Member.human_attribute_name("kind.#{member.kind}") %></td>
           <td><%= Member.human_attribute_name("state.#{member.state}") %></td>
-          <td>Buttons</td>
+          <td>
+            <a href="<%= edit_member_path(member.id)%>" class="btn btn-outline-primary btn-sm">
+              <svg width="15" height="15" role="img"><use xlink:href="#pencil-edit"/></svg>
+            </a>
+            <a href="<%= edit_member_path(member.id)%>" class="btn btn-outline-danger btn-sm">
+              <svg width="15" height="15" role="img"><use xlink:href="#circle-delete"/></svg>
+            </a>
+          </td>
         </tr>
       <% end %>
     </tbody>

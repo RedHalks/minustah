@@ -151,7 +151,12 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
     messages:
-      success: '%{model} cadastrado(a) com sucesso!'
+      success: '%{model} %{action} com sucesso!'
+      success/actions:
+        create: cadastrado(a)
+        update: atualizado(a)
+    actions: Ações
+    new: Novo
   number:
     currency:
       format:

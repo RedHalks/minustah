@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "members#new"
 
-  resources :members
+  resources :members, except: [:show, :destroy]
 end
