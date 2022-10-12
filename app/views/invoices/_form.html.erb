@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <%= form.label Member.model_name.human, class: 'form-label' %>
+    <%= form_select(:member_id, invoice_members, form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label CashFlow.model_name.human, class: 'form-label' %>
+    <%= form_select(:cash_flow_id, invoice_cash_flows(@invoice.member_id), form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :category, class: 'form-label' %>
+    <%= form_select(:category, invoice_category_options, form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :value, class: 'form-label' %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">R$</span>
+      <%= form.number_field :value, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :reference_month, class: 'form-label' %>
+    <%= form_select(:reference_month, (1..12), form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :reference_year, class: 'form-label' %>
+    <%= form_select(:reference_year, (2022..2025), form)%>
+  </div>
+</div>

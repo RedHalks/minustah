@@ -4,8 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  category   :string           not null
-#  date       :date             not null
 #  kind       :string           not null
+#  moved_at   :date             not null
 #  value      :float            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
