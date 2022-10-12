@@ -10,35 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_925_205_136) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_25_205136) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'cash_flows', force: :cascade do |t|
-    t.string 'kind', null: false
-    t.float 'value', null: false
-    t.string 'category', null: false
-    t.bigint 'member_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['member_id'], name: 'index_cash_flows_on_member_id'
+  create_table "cash_flows", force: :cascade do |t|
+    t.string "kind", null: false
+    t.float "value", null: false
+    t.string "category", null: false
+    t.date "date", null: false
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_cash_flows_on_member_id"
   end
 
-  create_table 'members', force: :cascade do |t|
-    t.string 'state', null: false
-    t.string 'kind', null: false
-    t.string 'nickname'
-    t.bigint 'person_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['person_id'], name: 'index_members_on_person_id'
+  create_table "members", force: :cascade do |t|
+    t.string "state", null: false
+    t.string "kind", null: false
+    t.string "nickname"
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_members_on_person_id"
   end
 
-  create_table 'people', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'blood_type'
-    t.date 'birthdate'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "people", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "blood_type"
+    t.date "birthdate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <%= form.label :category, class: 'form-label' %>
+    <%= form_select(:category, cash_flow_category_options, form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :kind, class: 'form-label' %>
+    <%= form_select(:kind, cash_flow_kind_options, form)%>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label Member.model_name.human, class: 'form-label' %>
+    <%= form_select(:member_id, cash_flow_members, form)%>
+  </div>
+  <div class="col-md-6 mb-3"></div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :date, class: 'form-label' %>
+    <%= form.date_field :date, class: 'form-control', max: 0.days.after %>
+  </div>
+  <div class="col-md-6 mb-3">
+    <%= form.label :value, class: 'form-label' %>
+    <div class="input-group mb-3">
+      <span class="input-group-text">R$</span>
+      <%= form.number_field :value, class: 'form-control' %>
+    </div>
+  </div>
+</div>
+
+<script>
+$(function () {
+  $('.input-group.date').datepicker({});
+});
+
+</script>
