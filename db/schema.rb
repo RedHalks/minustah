@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_25_205136) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_220204) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,11 +18,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_25_205136) do
     t.string "kind", null: false
     t.float "value", null: false
     t.string "category", null: false
-    t.date "date", null: false
+    t.date "moved_at", null: false
     t.bigint "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_cash_flows_on_member_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer "reference_month", null: false
+    t.integer "reference_year", null: false
+    t.float "value", null: false
+    t.string "category", null: false
+    t.bigint "cash_flow_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cash_flow_id"], name: "index_invoices_on_cash_flow_id"
+    t.index ["member_id"], name: "index_invoices_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|

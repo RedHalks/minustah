@@ -4,7 +4,7 @@ class CreateCashFlows < ActiveRecord::Migration[7.0]
       t.string :kind, null: false
       t.float :value, null: false
       t.string :category, null: false
-      t.date :date, null: false
+      t.date :moved_at, null: false
 
       t.belongs_to :member
 
