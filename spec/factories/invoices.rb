@@ -16,6 +16,7 @@
 #
 #  index_invoices_on_cash_flow_id  (cash_flow_id)
 #  index_invoices_on_member_id     (member_id)
+#  index_invoices_once_per_month   (member_id,reference_month,reference_year) UNIQUE
 #
 FactoryBot.define do
   factory :invoice do

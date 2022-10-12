@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root "members#new"
 
   resources :cash_flows, except: [:show]
+  resources :invoices, except: [:show]
   resources :members, except: [:show, :destroy]
 end

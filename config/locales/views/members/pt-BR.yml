@@ -1,6 +1,8 @@
 pt-BR:
   members:
-    new:
-      title: 'Novo Operador'
     index:
       title: 'Operadores'
+    new:
+      title: 'Novo Operador'
+    edit:
+      title: 'Editar Operador'

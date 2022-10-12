@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_220204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cash_flow_id"], name: "index_invoices_on_cash_flow_id"
+    t.index ["member_id", "reference_month", "reference_year"], name: "index_invoices_once_per_month", unique: true
     t.index ["member_id"], name: "index_invoices_on_member_id"
   end
 
