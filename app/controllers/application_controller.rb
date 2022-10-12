@@ -9,10 +9,14 @@ class ApplicationController < ActionController::Base
     success_notice(I18n.t('helpers.messages.success/actions.update'))
   end
 
+  def delete_success_notice
+    success_notice(I18n.t('helpers.messages.success/actions.delete'))
+  end
+
   def success_notice(action)
     model_class = self.class.name.sub(/Controller$/, '').classify.constantize
 
     name = model_class.model_name.human
-    flash[:notice] = I18n.t('helpers.messages.success', action: action, model: name)
+    flash[:notice] = I18n.t('helpers.messages.success', action:, model: name)
   end
 end

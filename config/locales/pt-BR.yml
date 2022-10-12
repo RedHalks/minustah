@@ -155,6 +155,7 @@ pt-BR:
       success/actions:
         create: cadastrado(a)
         update: atualizado(a)
+        delete: deletado(a)
     actions: Ações
     new: Novo
   number:

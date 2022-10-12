@@ -1,4 +1,3 @@
-
 module Interactor
   module Presenter
     extend ActiveSupport::Concern
@@ -6,8 +5,6 @@ module Interactor
     included do
       include Interactor
     end
-
-    attr_reader :params
 
     private
 

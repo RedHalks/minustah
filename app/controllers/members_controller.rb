@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :find_member, only: [:edit, :update, :delete]
+  before_action :find_member, only: %i[edit update]
 
   def index
     params[:q] ||= {}
@@ -27,7 +27,7 @@ class MembersController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit; end
 
   def update
     result = MemberInteractor::Update.call(member: @member, params: permitted_params)
@@ -48,9 +48,6 @@ class MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
 
-  def fetch_employee
-    HumanResources::EmployeeService::Fetch.call(params[:id])
-  end
   def permitted_params
     params.require(:member).permit(:nickname, :kind, :state, person_attributes: %i[name birthdate blood_type]).to_h
   end

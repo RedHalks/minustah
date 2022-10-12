@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      cash_flow:
+        one: Movimentação
+        other: Movimentações
+
+    attributes:
+      cash_flow:
+        category: Categoria
+        kind: Tipo
+        value: Valor
+        date: Data
+      cash_flow/kind:
+        input: 'Entrada'
+        output: 'Saida'
+      cash_flow/category:
+        membership: 'Mensalidade'
+        donation: 'Doação'
+        other: 'Outros'
+        mission: 'Missão'
+

@@ -1,0 +1,6 @@
+pt-BR:
+  cash_flows:
+    new:
+      title: 'Nova Movimentação'
+    index:
+      title: 'Movimentações'
