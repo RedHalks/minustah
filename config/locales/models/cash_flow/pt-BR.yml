@@ -10,7 +10,7 @@ pt-BR:
         category: Categoria
         kind: Tipo
         value: Valor
-        date: Data
+        moved_at: Data
       cash_flow/kind:
         input: 'Entrada'
         output: 'Saida'

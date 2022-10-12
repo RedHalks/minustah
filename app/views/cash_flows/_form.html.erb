@@ -13,8 +13,8 @@
   </div>
   <div class="col-md-6 mb-3"></div>
   <div class="col-md-6 mb-3">
-    <%= form.label :date, class: 'form-label' %>
-    <%= form.date_field :date, class: 'form-control', max: 0.days.after %>
+    <%= form.label :moved_at, class: 'form-label' %>
+    <%= form.date_field :moved_at, class: 'form-control', max: 0.days.after %>
   </div>
   <div class="col-md-6 mb-3">
     <%= form.label :value, class: 'form-label' %>
@@ -24,10 +24,3 @@
     </div>
   </div>
 </div>
-
-<script>
-$(function () {
-  $('.input-group.date').datepicker({});
-});
-
-</script>

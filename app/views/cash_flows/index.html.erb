@@ -14,7 +14,7 @@
         <th scope="col"><%= Member.model_name.human %></th>
         <th scope="col"><%= CashFlow.human_attribute_name('kind') %></th>
         <th scope="col"><%= CashFlow.human_attribute_name('category') %></th>
-        <th scope="col"><%= CashFlow.human_attribute_name('date') %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('moved_at') %></th>
         <th scope="col"><%= CashFlow.human_attribute_name('value') %></th>
         <th scope="col"><%= t('helpers.actions') %></th>
       </tr>
@@ -25,7 +25,7 @@
           <td><%= cash_flow.member.name %></td>
           <td><%= CashFlow.human_attribute_name("kind.#{cash_flow.kind}") %></td>
           <td><%= CashFlow.human_attribute_name("category.#{cash_flow.category}") %></td>
-          <td><%= l(cash_flow.date, format: :long) %></td>
+          <td><%= l(cash_flow.moved_at, format: :long) %></td>
           <td><%= number_to_currency(cash_flow.value, locale: :'pt-BR')  %></td>
           <td>
             <div class="btn-toolbar" role="toolbar">
