@@ -1,4 +1,4 @@
-class CashFlowsController < ApplicationController
+class CashFlowsController < AuthenticatedController
   before_action :find_cash_flow, only: %i[edit update destroy]
 
   def index

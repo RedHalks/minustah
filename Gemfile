@@ -51,6 +51,9 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Use devise for autentication on the web
+gem 'devise', '~> 4.8'
+
 # Use Interactor as use cases
 gem 'interactor-rails', '~> 2.0'
 

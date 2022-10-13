@@ -1,4 +1,4 @@
-class InvoicesController < ApplicationController
+class InvoicesController < AuthenticatedController
   before_action :find_invoice, only: %i[edit update destroy]
 
   def index
