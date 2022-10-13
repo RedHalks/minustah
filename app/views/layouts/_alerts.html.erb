@@ -10,12 +10,16 @@
   <div class="alert alert-danger d-flex align-items-center" role="alert">
     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"><use xlink:href="#exclamation-triangle-fill"/></svg>
     <div class="container">
-      <%= t('errors.template.body') %>
-      <div class="container">
-        <% alert.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </div>
+      <% if alert.is_a?(Array) %>
+        <%= t('errors.template.body') %>
+        <div class="container">
+          <% alert.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </div>
+      <% else %>
+        <%= alert %>
+      <% end %>
     </div>
   </div>
 <% end %>
