@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class MembersController < AuthenticatedController
   before_action :find_member, only: %i[edit update]
 
   def index
