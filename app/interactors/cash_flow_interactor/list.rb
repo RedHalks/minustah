@@ -1,4 +1,4 @@
-module MemberInteractor
+module CashFlowInteractor
   class List
     include Interactor::Presenter
 
