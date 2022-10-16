@@ -27,4 +27,8 @@ class Member < ApplicationRecord
   def name
     nickname || person.name
   end
+
+  def membership_value
+    official? ? 20 : 10
+  end
 end

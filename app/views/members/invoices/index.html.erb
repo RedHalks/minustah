@@ -1,15 +1,11 @@
 <% content_for :title, t('.title') %>
 <div class="btn-toolbar justify-content-between mb-1" role="toolbar">
   <h3><%= t('.title') %></h3>
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <%= link_to new_invoices_batchs_path, class: 'btn btn-default' do %>
-      Criar em lote
-    <% end %>
-    <%= link_to new_invoice_path(member_id: @member_id), class: 'btn btn-primary' do %>
-      <svg width="12" height="12" role="img"><use xlink:href="#plus"/></svg>
-      <%= t('helpers.new') %>
-    <% end %>
-  </div>
+  
+  <%= link_to new_member_invoice_path(member_id: @member_id), class: 'btn btn-primary' do %>
+    <svg width="12" height="12" role="img"><use xlink:href="#plus"/></svg>
+    <%= t('helpers.new') %>
+  <% end %>
 </div>
 
 <div class="table-responsive">

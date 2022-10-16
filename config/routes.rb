@@ -11,5 +11,11 @@ Rails.application.routes.draw do
 
   resources :cash_flows, except: [:show]
   resources :invoices, except: [:show]
-  resources :members, except: [:show, :destroy]
+  namespace :invoices do
+    resource :batchs, only: [:new, :create]
+  end
+  resources :members, except: [:show, :destroy] do
+    resources :invoices, except: [:show, :destroy], controller: 'members/invoices'
+    resources :cash_flows, except: [:show, :destroy], controller: 'members/cash_flows'
+  end
 end

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def success_notice(action)
-    model_class = self.class.name.sub(/Controller$/, '').classify.constantize
+    model_class = self.class.name.sub(/Controller$/, '').classify.demodulize.constantize
 
     name = model_class.model_name.human
     flash[:notice] = I18n.t('helpers.messages.success', action:, model: name)

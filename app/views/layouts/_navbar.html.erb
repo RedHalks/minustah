@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a href="<%= cash_flows_path%>" class="nav-link"><%= CashFlow.model_name.human(count: 2) %></a>
         </li>
+        <li class="nav-item">
+          <a href="<%= invoices_path%>" class="nav-link"><%= Invoice.model_name.human(count: 2) %></a>
+        </li>
         <%# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown

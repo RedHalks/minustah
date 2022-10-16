@@ -2,7 +2,7 @@
 
 <div class="btn-toolbar justify-content-between mb-1" role="toolbar">
   <h3><%= t('.title') %></h3>
-  <%= link_to Invoice.model_name.human(count: 2), invoices_path(member_id: @member.id), class: 'btn btn-primary' %>
+  <%= link_to Invoice.model_name.human(count: 2), member_invoices_path(member_id: @member.id), class: 'btn btn-primary' %>
 </div>
 <%= form_with model: @member, method: :patch do |form| %>
   <%= render partial: 'form', locals: { form: form } %>

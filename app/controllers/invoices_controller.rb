@@ -5,19 +5,17 @@ class InvoicesController < AuthenticatedController
     params[:q] ||= {}
     params[:p] ||= {}
     params[:s] ||= ['created_at desc']
-    @member_id = params.require(:member_id).to_i
 
-    @pagy, @invoices = pagy(Invoice.where(member_id: @member_id), items: 10)
+    @pagy, @invoices = pagy(Invoice.all, items: 10)
     # InvoiceInteractor::List.call(params.permit!)
   end
 
   def new
     default_attr = {
-      value: Member.find(params[:member_id]).official? ? 20 : 10,
       category: :membership,
       reference_month: Time.zone.today.month,
       reference_year: Time.zone.today.year
-    }.merge(params.permit(:member_id).to_h)
+    }
 
     @invoice = Invoice.new(default_attr)
   end
@@ -27,7 +25,7 @@ class InvoicesController < AuthenticatedController
 
     if result.success?
       create_success_notice
-      redirect_to invoices_path(member_id: result.invoice.member_id)
+      redirect_to invoices_path
     else
       @invoice = result.invoice
       build_error_alert
@@ -42,7 +40,7 @@ class InvoicesController < AuthenticatedController
 
     if result.success?
       update_success_notice
-      redirect_to invoices_path(member_id: result.invoice.member_id)
+      redirect_to invoices_path
     else
       @invoice = result.invoice
       build_error_alert
