@@ -1,0 +1,7 @@
+<% content_for :title, t('.title') %>
+<h3><%= t('.title') %></h3>
+
+<%= form_with model: @cash_flow, method: :patch do |form| %>
+  <%= render partial: 'form', locals: { form: form } %>
+  <%= form.submit t('helpers.submit.update', model: CashFlow.model_name.human), :class  => "btn btn-md btn-primary" %>
+<% end %>

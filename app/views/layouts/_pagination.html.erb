@@ -1,0 +1,24 @@
+<% if @pagy.pages > 1 %>
+  <caption>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <%== pagy_nav(@pagy) %>
+        <!--
+        <li class="page-item <% if !@pagy.prev %> disabled <% end %>">
+          <a class="page-link" href="#" aria-label="previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <%# <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li> %>
+        <li class="page-item <% if !@pagy.next %> disabled <% end %>">
+          <a class="page-link" href="#" aria-label="next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        -->
+      </ul>
+    </nav>
+  </caption>
+<% end %>

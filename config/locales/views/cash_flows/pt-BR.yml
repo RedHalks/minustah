@@ -1,0 +1,8 @@
+pt-BR:
+  cash_flows:
+    index:
+      title: 'Movimentações'
+    new:
+      title: 'Nova Movimentação'
+    edit:
+      title: 'Editar Movimentação'

@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  category   :string           not null
 #  kind       :string           not null
+#  moved_at   :date             not null
 #  value      :float            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -16,8 +17,9 @@
 #
 FactoryBot.define do
   factory :cash_flow do
-    kind { CashFlow.kinds.values.sample }
     category { CashFlow.categories.values.sample }
+    kind { CashFlow.kinds.values.sample }
+    date { Time.zone.today }
     value { Faker::Number.decimal(r_digits: 2) }
 
     association :member

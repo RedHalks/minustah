@@ -1,0 +1,49 @@
+<% content_for :title, t('.title') %>
+<div class="btn-toolbar justify-content-between mb-1" role="toolbar">
+  <h3><%= t('.title') %></h3>
+  
+  <%= link_to new_member_invoice_path(member_id: @member_id), class: 'btn btn-primary' do %>
+    <svg width="12" height="12" role="img"><use xlink:href="#plus"/></svg>
+    <%= t('helpers.new') %>
+  <% end %>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered align-middle caption-top">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"><%= Member.model_name.human %></th>
+        <th scope="col"><%= Invoice.human_attribute_name('category') %></th>
+        <th scope="col"><%= Invoice.human_attribute_name('reference_month') %></th>
+        <th scope="col"><%= Invoice.human_attribute_name('reference_year') %></th>
+        <th scope="col"><%= Invoice.human_attribute_name('value') %></th>
+        <th scope="col">Pago?</th>
+        <th scope="col"><%= t('helpers.actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @invoices.each do |invoice| %>
+        <tr>
+          <td><%= invoice.member.name %></td>
+          <td><%= Invoice.human_attribute_name("category.#{invoice.category}") %></td>
+          <td><%= invoice.reference_month %></td>
+          <td><%= invoice.reference_year %></td>
+          <td><%= number_to_currency(invoice.value, locale: :'pt-BR') %></td>
+          <td><%= invoice.cash_flow_id.present? ? 'Sim' : 'Não' %></td>
+          <td>
+            <div class="btn-toolbar" role="toolbar">
+              <%= link_to edit_invoice_path(invoice.id), class: 'btn btn-outline-primary btn-sm me-1' do %>
+                <svg width="15" height="15" role="img"><use xlink:href="#pencil-edit"/></svg>
+              <% end %>
+              <%= button_to invoice_path(invoice.id), method: :delete,
+                    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-outline-danger btn-sm' do %>
+                <svg width="15" height="15" role="img"><use xlink:href="#circle-delete"/></svg>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <%= render partial: 'layouts/pagination' %>
+  </table>
+</div>

@@ -22,7 +22,13 @@ class Member < ApplicationRecord
 
   validates :kind, :state, presence: true
 
+  accepts_nested_attributes_for :person
+
   def name
     nickname || person.name
+  end
+
+  def membership_value
+    official? ? 20 : 10
   end
 end

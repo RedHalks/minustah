@@ -1,0 +1,47 @@
+<% content_for :title, t('.title') %>
+<div class="btn-toolbar justify-content-between mb-1" role="toolbar">
+  <h3><%= t('.title') %></h3>
+  
+  <%= link_to new_cash_flow_path, class: 'btn btn-primary' do %>
+    <svg width="12" height="12" role="img"><use xlink:href="#plus"/></svg>
+    <%= t('helpers.new') %>
+  <% end %>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered align-middle caption-top">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"><%= Member.model_name.human %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('kind') %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('category') %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('moved_at') %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('value') %></th>
+        <th scope="col"><%= t('helpers.actions') %></th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @cash_flows.each do |cash_flow| %>
+        <tr>
+          <td><%= cash_flow.member.name %></td>
+          <td><%= CashFlow.human_attribute_name("kind.#{cash_flow.kind}") %></td>
+          <td><%= CashFlow.human_attribute_name("category.#{cash_flow.category}") %></td>
+          <td><%= l(cash_flow.moved_at, format: :long) %></td>
+          <td><%= number_to_currency(cash_flow.value, locale: :'pt-BR')  %></td>
+          <td>
+            <div class="btn-toolbar" role="toolbar">
+              <%= link_to edit_cash_flow_path(cash_flow.id), class: 'btn btn-outline-primary btn-sm me-1' do %>
+                <svg width="15" height="15" role="img"><use xlink:href="#pencil-edit"/></svg>
+              <% end %>
+              <%= button_to cash_flow_path(cash_flow.id), method: :delete,
+                    form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-outline-danger btn-sm' do %>
+                <svg width="15" height="15" role="img"><use xlink:href="#circle-delete"/></svg>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <%= render partial: 'layouts/pagination' %>
+  </table>
+</div>

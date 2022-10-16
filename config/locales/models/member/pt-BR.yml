@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+
+    models:
+      member:
+        one: Operador
+        other: Operadores
+
+    attributes:
+      member:
+        nickname: Nome de Guerra
+        kind: Tipo
+        state: Situação
+      member/kind:
+        rookie: 'Pelanco'
+        official: 'Halks'
+      member/state:
+        active: 'Ativo'
+        inactive: 'Inativa'
+        reserve: 'Reserva'
+

@@ -1,0 +1,8 @@
+pt-BR:
+  members:
+    index:
+      title: 'Operadores'
+    new:
+      title: 'Novo Operador'
+    edit:
+      title: 'Editar Operador'

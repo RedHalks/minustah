@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      invoice:
+        one: Cobrança
+        other: Cobranças
+
+    attributes:
+      invoice:
+        category: Categoria
+        reference_month: Mês de referência
+        reference_year: Ano de referência
+        value: Valor
+      invoice/category:
+        membership: 'Mensalidade'
+
