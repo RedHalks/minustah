@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+    attributes:
+      user:
+        email: E-mail
+        password: Senha
+        # failed_attempts: Nome
+        # locked_at: Nome
+        remember_me: Lembrar de mim
+        # reset_password_sent_at: Nome
+        # reset_password_token: Nome
+        # unlock_token: Nome
+
+    errors:
+      messages:
+        user:
+          password_confirmation: Confimação de senha não confere
+

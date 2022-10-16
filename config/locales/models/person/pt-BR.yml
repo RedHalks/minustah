@@ -19,8 +19,3 @@ pt-BR:
         o_minus: 'O-'
         ab_plus: 'AB+'
         ab_minus: 'AB-'
-
-    errors:
-      messages:
-        person:
-          password_confirmation: Confimação de senha não confere
