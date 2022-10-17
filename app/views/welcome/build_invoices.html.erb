@@ -1,0 +1,38 @@
+
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered align-middle caption-top">
+    <thead class="table-light">
+      <tr>
+        <th scope="col"><%= Person.human_attribute_name('name') %></th>
+        <% (1..12).each do |month| %>
+          <th scope="col"><%= t('date.abbr_month_names')[month] %></th>
+        <% end %>
+        <th scope="col"><b>Total</b></th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @data['values'].each do |key, value| %>
+        <tr>
+          <td scope="row"><%= Member.find(key).name %></td>
+          <% (1..12).each do |month| %>
+            <td scope="row">
+              <%= number_to_currency(value[month.to_s], locale: :'pt-BR') %></td>
+          <% end %>
+          <td scope="row"></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td scope="row"><b>Total:</b></td>
+        <% (1..12).each do |month| %>
+          <td scope="row">
+            <b><%= number_to_currency(@data['total'][month.to_s], locale: :'pt-BR') %></b>
+          </td>
+        <% end %>
+        <td scope="row">
+          <b><%= number_to_currency(@data['total']['year'], locale: :'pt-BR') %></b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

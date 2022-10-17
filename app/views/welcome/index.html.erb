@@ -1,2 +1,4 @@
 <% content_for :title, t('.title') %>
 <h3><%= t('.title') %></h3>
+
+<%= link_to 'Build invoices', welcome_build_invoices_path(format: :pdf), class: 'btn btn-outline-primary btn-sm me-1' %>

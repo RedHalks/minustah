@@ -31,4 +31,7 @@ class Invoice < ApplicationRecord
                                       message: 'should happen once per month' }
 
   validates :category, :value, :reference_month, :reference_year, presence: true
+
+
+  scope :paid, ->{ where('cash_flow_id IS NOT NULL') }
 end

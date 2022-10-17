@@ -25,7 +25,7 @@ class Member < ApplicationRecord
   accepts_nested_attributes_for :person
 
   def name
-    nickname || person.name
+    nickname.blank? ? person.name : nickname
   end
 
   def membership_value

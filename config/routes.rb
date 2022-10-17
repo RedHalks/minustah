@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :welcome do
     get :index
+    get :build_invoices
   end
 
   resources :cash_flows, except: [:show]
