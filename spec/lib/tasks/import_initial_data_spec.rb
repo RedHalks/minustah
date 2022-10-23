@@ -1,15 +1,17 @@
 require 'rails_helper'
 Rails.application.load_tasks
 
-describe Rake::Task, type: :task do
+describe 'import_cash_flow_initial_data', type: :task do
   context 'when invoke task' do
-    subject { described_class['import_cash_flow_initial_data'] }
+    subject { Rake::Task['import_cash_flow_initial_data'] }
 
     let(:invoke_action) { subject.invoke }
-    let(:expected_results) {[
-      { class: CashFlow, count: 41 },
-      { class: Invoice, count: 81 }
-    ]}
+    let(:expected_results) do
+      [
+        { class: CashFlow, count: 41 },
+        { class: Invoice, count: 81 }
+      ]
+    end
 
     before do
       (1..30).each do |i|

@@ -32,8 +32,7 @@ class Invoice < ApplicationRecord
 
   validates :category, :value, :reference_month, :reference_year, presence: true
 
-
-  scope :paid, ->{ where('cash_flow_id IS NOT NULL') }
+  scope :paid, -> { where('cash_flow_id IS NOT NULL') }
 
   def paid?
     cash_flow_id.present?
