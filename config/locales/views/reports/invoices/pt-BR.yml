@@ -1,0 +1,8 @@
+pt-BR:
+  reports:
+    invoices:
+      paid:
+        title: 'Relatório de mensalidades do ano'
+        not_paid: 'Pendente'
+        total: 'Total'
+        free: 'X'

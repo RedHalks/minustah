@@ -1,5 +1,6 @@
-
-
+<% content_for :title, t('.title') %>
+<h1><%= "#{t('.title')} (#{Time.zone.today.year})" %></h1>
+<br>
 <div class="table-responsive">
   <table class="table table-hover table-bordered align-middle caption-top">
     <thead class="table-light">
@@ -8,7 +9,7 @@
         <% (1..12).each do |month| %>
           <th scope="col"><%= t('date.abbr_month_names')[month] %></th>
         <% end %>
-        <th scope="col"><b>Total</b></th>
+        <th scope="col"><b><%= t('.total') %></b></th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -31,11 +32,11 @@
                   %>
                   <span class="badge bg-success"><%= number_to_currency(invoice.value, locale: :'pt-BR') %></span>
                 <% else %>
-                  <span class="badge bg-danger">Pendente</span>
+                  <span class="badge bg-danger"><%= t('.not_paid') %></span>
                 <% end %>
               <% else %>
                 <% if Date.today.month >= month %>
-                  <span class="badge bg-secondary">X</span>
+                  <span class="badge bg-secondary"><%= t('.free') %></span>
                 <% end %>
               <% end %>
             </td>
@@ -46,7 +47,7 @@
         </tr>
       <% end %>
       <tr>
-        <td scope="row"><b>Total:</b></td>
+        <td scope="row"><b><%= t('.total') %></b></td>
         <% (1..12).each do |month| %>
           <td scope="row">
             <b><%= number_to_currency(total[month.to_s], locale: :'pt-BR') %></b>
