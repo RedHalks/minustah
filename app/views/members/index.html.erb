@@ -29,9 +29,9 @@
           <td><%= Member.human_attribute_name("kind.#{member.kind}") %></td>
           <td><%= Member.human_attribute_name("state.#{member.state}") %></td>
           <td>
-            <a href="<%= edit_member_path(member.id)%>" class="btn btn-outline-primary btn-sm">
+            <%= link_to edit_member_path(member.id), class: 'btn btn-outline-primary btn-sm' do %>
               <i class="bi bi-pencil"></i>
-            </a>
+            <% end %>
           </td>
         </tr>
       <% end %>
