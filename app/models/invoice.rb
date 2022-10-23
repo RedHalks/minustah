@@ -34,4 +34,8 @@ class Invoice < ApplicationRecord
 
 
   scope :paid, ->{ where('cash_flow_id IS NOT NULL') }
+
+  def paid?
+    cash_flow_id.present?
+  end
 end
