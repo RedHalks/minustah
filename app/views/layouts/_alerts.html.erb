@@ -1,6 +1,6 @@
 <% if notice %>
   <div class="alert alert-success d-flex align-items-center" role="alert">
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"><use xlink:href="#check-circle-fill"/></svg>
+    <i class="bi bi-check-circle-fill"></i>
     <div>
       <%= notice %>
     </div>
@@ -8,7 +8,7 @@
 <% end %>
 <% if alert %>
   <div class="alert alert-danger d-flex align-items-center" role="alert">
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <i class="bi bi-exclamation-triangle-fill"></i>
     <div class="container">
       <% if alert.is_a?(Array) %>
         <%= t('errors.template.body') %>
