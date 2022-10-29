@@ -21,7 +21,7 @@ class CashFlow < ApplicationRecord
 
   belongs_to :member
 
-  has_many :invoices
+  has_many :invoices, dependent: :restrict_with_exception
 
   validates :kind, :category, :value, presence: true
 end
