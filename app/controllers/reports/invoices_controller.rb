@@ -6,7 +6,7 @@ module Reports
       respond_to do |format|
         format.html
         format.pdf do
-          render pdf: 'invoices', orientation: 'Landscape', layout: 'pdf', formats: [:html]
+          render pdf: 'invoices_paid', orientation: 'Landscape', layout: 'pdf', formats: [:html]
         end
       end
     end

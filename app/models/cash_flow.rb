@@ -21,5 +21,7 @@ class CashFlow < ApplicationRecord
 
   belongs_to :member
 
+  has_many :invoices
+
   validates :kind, :category, :value, presence: true
 end
