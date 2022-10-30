@@ -1,0 +1,39 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <i class="bi bi-search"></i>
+  Pesquisar
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_with url: invoices_path , method: :get do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= t('helpers.submit.search') %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <%= form.label Member.model_name.human, class: 'form-label' %>
+              <%= form_select('q[member_id_eq]', invoice_members, form)%>
+            </div>
+            <div class="col-md-12 mb-3">
+              <%= form.label Invoice.human_attribute_name('category'), class: 'form-label' %>
+              <%= form_select('q[category_eq]', invoice_category_options, form)%>
+            </div>
+            <div class="col-md-6 mb-3">
+              <%= form.label Invoice.human_attribute_name('reference_month'), class: 'form-label' %>
+              <%= form_select('q[reference_month_eq]', (1..12), form)%>
+            </div>
+            <div class="col-md-6 mb-3">
+              <%= form.label Invoice.human_attribute_name('reference_year'), class: 'form-label' %>
+              <%= form_select('q[reference_year_eq]', (2022..2025), form)%>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= form.submit t('helpers.submit.search'), :class  => "btn btn-md btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

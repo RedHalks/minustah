@@ -24,6 +24,8 @@ class Member < ApplicationRecord
 
   accepts_nested_attributes_for :person
 
+  default_scope { includes(:person) }
+
   def name
     nickname.presence || person.name
   end

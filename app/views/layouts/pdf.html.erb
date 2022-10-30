@@ -18,13 +18,13 @@
       }
   </style>
   </head>
-  <body onload='number_pages'>
+  <body>
     <div id="header">
       <% # wicked_pdf_image_tag 'mysite.jpg' %>
       <h1><%= yield :title %></h1>
     </div>
     <br/>
-    <div id="content">
+    <div id="content" style="border: none;">
       <%= yield %>
     </div>
   </body>

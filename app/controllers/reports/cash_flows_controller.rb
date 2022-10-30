@@ -1,7 +1,8 @@
 module Reports
   class CashFlowsController < AuthenticatedController
     def monthly
-      @result = ReportInteractor::CashFlows::Monthly.call(month: Time.zone.today.month, year: Time.zone.today.year)
+      date = params.require(:date).to_date
+      @result = ReportInteractor::CashFlows::Monthly.call(month: format('%02d', date.month), year: date.year)
 
       respond_to do |format|
         format.html

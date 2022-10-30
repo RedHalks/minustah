@@ -30,7 +30,7 @@ module Interactor
     # end
 
     def filter_options
-      params[:q] || {}
+      context.q || {}
     end
 
     # def page_options
@@ -38,7 +38,7 @@ module Interactor
     # end
 
     def sort_options
-      params[:s] || []
+      context.s || []
     end
 
     def params

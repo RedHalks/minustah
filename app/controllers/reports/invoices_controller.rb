@@ -1,7 +1,7 @@
 module Reports
   class InvoicesController < AuthenticatedController
     def paid
-      @result = ReportInteractor::Invoices::Paid.call(year: Time.zone.today.year)
+      @result = ReportInteractor::Invoices::Paid.call(year: params.require(:year))
 
       respond_to do |format|
         format.html
