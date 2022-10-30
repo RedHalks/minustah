@@ -1,0 +1,15 @@
+pt-BR:
+  reports:
+    cash_flows:
+      monthly:
+        title: Demostrativo
+        input: Receitas
+        output: Despesas
+        result: Resultado
+        past_balance: Saldo Anterior
+        input_total: Total de Entrada
+        output_total: Total de Saida
+        statement_balance: Receitas
+        membership_reference: Mensaliades referente ao mes
+        total: Total
+        free: --

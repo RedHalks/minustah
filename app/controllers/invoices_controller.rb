@@ -6,8 +6,8 @@ class InvoicesController < AuthenticatedController
     params[:p] ||= {}
     params[:s] ||= ['created_at desc']
 
-    @pagy, @invoices = pagy(Invoice.all, items: 10)
-    # InvoiceInteractor::List.call(params.permit!)
+    @q = InvoiceInteractor::List.call(params.permit!).data
+    @pagy, @invoices = pagy(@q.result)
   end
 
   def new

@@ -4,12 +4,27 @@
     <meta charset='utf-8' />
     <%= wicked_pdf_stylesheet_link_tag "application" -%>
     <%= wicked_pdf_javascript_include_tag "application" -%>
+    <style>
+      /* table { display : inline-block} */
+      /* thead { display: table-row-group } */
+      /* tfoot { display: table-row-group } */
+      /* tr { page-break-inside: avoid }
+
+      .page-break {
+          display:block; clear:both; page-break-after:always;
+      } */
+      table, tr, td, th, tbody, thead, tfoot {
+        page-break-inside: avoid !important;
+      }
+  </style>
   </head>
-  <body onload='number_pages'>
+  <body>
     <div id="header">
       <% # wicked_pdf_image_tag 'mysite.jpg' %>
+      <h1><%= yield :title %></h1>
     </div>
-    <div id="content">
+    <br/>
+    <div id="content" style="border: none;">
       <%= yield %>
     </div>
   </body>
