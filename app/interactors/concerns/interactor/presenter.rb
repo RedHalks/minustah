@@ -9,8 +9,7 @@ module Interactor
     private
 
     def apply_list_configs(data_list)
-      # apply_pagination(apply_sorting(apply_filters(data_list)))
-      apply_sorting(apply_filters(data_list)).result
+      apply_sorting(apply_filters(data_list))
     end
 
     def apply_filters(data_list)
@@ -22,23 +21,12 @@ module Interactor
       ransack_search
     end
 
-    # def apply_pagination(ransack_search)
-    #   # binding.break
-    #   # binding.break
-    #   pagy(ransack_search.result)
-    #   # ransack_search.result.page(page_options[:page]).per(page_options[:per_page])
-    # end
-
     def filter_options
-      params[:q] || {}
+      context.q || {}
     end
 
-    # def page_options
-    #   params[:p] || {}
-    # end
-
     def sort_options
-      params[:s] || []
+      context.s || []
     end
 
     def params

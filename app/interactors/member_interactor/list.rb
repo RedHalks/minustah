@@ -3,7 +3,7 @@ module MemberInteractor
     include Interactor::Presenter
 
     def call
-      apply_list_configs(Member.all)
+      context.data = apply_list_configs(Member.all)
     end
   end
 end

@@ -1,12 +1,12 @@
 module Reports
   class InvoicesController < AuthenticatedController
     def paid
-      @result = ReportInteractor::Invoices::Paid.call(year: Time.zone.today.year)
+      @result = ReportInteractor::Invoices::Paid.call(year: params.require(:year))
 
       respond_to do |format|
         format.html
         format.pdf do
-          render pdf: 'invoices', orientation: 'Landscape', layout: 'pdf', formats: [:html]
+          render pdf: 'invoices_paid', orientation: 'Landscape', layout: 'pdf', formats: [:html]
         end
       end
     end

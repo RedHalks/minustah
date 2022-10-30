@@ -150,6 +150,7 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+      search: Pesquisar
     messages:
       success: '%{model} %{action} com sucesso!'
       success/actions:

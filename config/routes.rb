@@ -24,5 +24,8 @@ Rails.application.routes.draw do
     namespace :invoices do
       get :paid
     end
+    namespace :cash_flows do
+      get :monthly
+    end
   end
 end

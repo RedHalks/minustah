@@ -37,4 +37,8 @@ class Invoice < ApplicationRecord
   def paid?
     cash_flow_id.present?
   end
+
+  def formated_reference_month
+    format('%02d', reference_month)
+  end
 end

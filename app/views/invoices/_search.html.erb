@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#search-modal">
+  <i class="bi bi-search"></i>
+  <%= t('helpers.submit.search') %>
+</button>
+<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="search-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= search_form_for @q do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title" id="search-modal-label"><%= t('helpers.submit.search') %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <%= form.label Member.model_name.human, class: 'form-label' %>
+              <%= form_select(:member_id_eq, invoice_members, form)%>
+            </div>
+            <div class="col-md-12 mb-3">
+              <%= form.label :category_eq, class: 'form-label' %>
+              <%= form_select(:category_eq, invoice_category_options, form)%>
+            </div>
+            <div class="col-md-6 mb-3">
+              <%= form.label :reference_month_eq, class: 'form-label' %>
+              <%= form_select(:reference_month_eq, (1..12), form)%>
+            </div>
+            <div class="col-md-6 mb-3">
+              <%= form.label :reference_year_eq, class: 'form-label' %>
+              <%= form_select(:reference_year_eq, (2022..2025), form)%>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= link_to 'Limpar', invoices_path, class: 'btn btn-outline-secondary' %>
+          <%= form.submit t('helpers.submit.search'), :class  => "btn btn-md btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
