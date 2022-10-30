@@ -6,8 +6,8 @@ class CashFlowsController < AuthenticatedController
     params[:p] ||= {}
     params[:s] ||= ['date asc']
 
-    @pagy, @cash_flows = pagy(CashFlow.all, items: 10)
-    # CashFlowInteractor::List.call(params.permit!)
+    @q = CashFlowInteractor::List.call(params.permit!).data
+    @pagy, @cash_flows = pagy(@q.result)
   end
 
   def new

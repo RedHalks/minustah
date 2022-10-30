@@ -3,7 +3,7 @@ module CashFlowInteractor
     include Interactor::Presenter
 
     def call
-      apply_list_configs(CashFlow.all)
+      context.data = apply_list_configs(CashFlow.includes(:member).all)
     end
   end
 end

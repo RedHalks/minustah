@@ -1,15 +1,20 @@
 <% content_for :title, t('.title') %>
-<div class="btn-toolbar justify-content-between mb-1" role="toolbar">
-  <h3><%= t('.title') %></h3>
+<h3><%= t('.title') %></h3>
   
-  <%= link_to new_cash_flow_path, class: 'btn btn-primary' do %>
-    <i class="bi bi-plus"></i>
-    <%= t('helpers.new') %>
-  <% end %>
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <%= render partial: 'search' %>
+  </div>
+  <div class="col-md-8 mb-3 text-end">
+    <%= link_to new_cash_flow_path, class: 'btn btn-primary' do %>
+      <i class="bi bi-plus"></i>
+      <%= t('helpers.new') %>
+    <% end %>
+  </div>
 </div>
 
 <div class="table-responsive">
-  <table class="table table-hover table-bordered align-middle caption-top">
+  <table class="table table-hover table-bordered align-middle caption-bottom">
     <thead class="table-light">
       <tr>
         <th scope="col"><%= Member.model_name.human %></th>
