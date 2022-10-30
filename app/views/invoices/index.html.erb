@@ -1,8 +1,12 @@
 <% content_for :title, t('.title') %>
-<div class="btn-toolbar justify-content-between mb-1" role="toolbar">
-  <h3><%= t('.title') %></h3>
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <%= link_to new_invoices_batchs_path, class: 'btn btn-default' do %>
+<h3><%= t('.title') %></h3>
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <%= render partial: 'search' %>
+  </div>
+  <div class="col-md-8 mb-3 text-end">
+    <%= link_to new_invoices_batchs_path, class: 'btn btn-outline-secondary' do %>
       Criar em lote
     <% end %>
     <%= link_to new_invoice_path(member_id: @member_id), class: 'btn btn-primary' do %>
@@ -11,10 +15,9 @@
     <% end %>
   </div>
 </div>
-<%= render partial: 'search' %>
 
 <div class="table-responsive">
-  <table class="table table-hover table-bordered align-middle caption-top">
+  <table class="table table-hover table-bordered align-middle caption-bottom">
     <thead class="table-light">
       <tr>
         <th scope="col"><%= Member.model_name.human %></th>

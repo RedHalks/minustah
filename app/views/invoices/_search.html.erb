@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <i class="bi bi-search"></i>
   Pesquisar
 </button>
@@ -14,19 +14,19 @@
           <div class="row">
             <div class="col-md-12 mb-3">
               <%= form.label Member.model_name.human, class: 'form-label' %>
-              <%= form_select('q[member_id_eq]', invoice_members, form)%>
+              <%= form_select('q[member_id_eq]', invoice_members, form, options: { selected: params[:q][:member_id_eq] })%>
             </div>
             <div class="col-md-12 mb-3">
               <%= form.label Invoice.human_attribute_name('category'), class: 'form-label' %>
-              <%= form_select('q[category_eq]', invoice_category_options, form)%>
+              <%= form_select('q[category_eq]', invoice_category_options, form, options: { selected: params[:q][:category_eq] })%>
             </div>
             <div class="col-md-6 mb-3">
               <%= form.label Invoice.human_attribute_name('reference_month'), class: 'form-label' %>
-              <%= form_select('q[reference_month_eq]', (1..12), form)%>
+              <%= form_select('q[reference_month_eq]', (1..12), form, options: { selected: params[:q][:reference_month_eq] })%>
             </div>
             <div class="col-md-6 mb-3">
               <%= form.label Invoice.human_attribute_name('reference_year'), class: 'form-label' %>
-              <%= form_select('q[reference_year_eq]', (2022..2025), form)%>
+              <%= form_select('q[reference_year_eq]', (2022..2025), form, options: { selected: params[:q][:reference_year_eq] })%>
             </div>
           </div>
         </div>
