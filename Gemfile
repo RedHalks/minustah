@@ -63,8 +63,7 @@ gem 'ransack', '~> 3.2'
 gem 'pagy', '~> 5.10'
 
 gem 'wicked_pdf'
-# TODO: This is a beta version, update it to stable version when avaliable
-gem 'wkhtmltopdf-heroku', '2.12.6.1.pre.jammy'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -1,6 +1,8 @@
 module Reports
   class InvoicesController < AuthenticatedController
     def paid
+      @format = params[:format]
+      @year = params.require(:year)
       @result = ReportInteractor::Invoices::Paid.call(year: params.require(:year))
 
       respond_to do |format|

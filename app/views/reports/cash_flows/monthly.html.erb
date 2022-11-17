@@ -13,6 +13,18 @@
     margin-bottom: 0px;
   }
 </style>
+
+<% if @format == 'html' %>
+  <div class="row">
+    <div class="col-md-8 mb-3 text-end">
+      <%= form_with url: reports_cash_flows_monthly_path(format: :pdf) , method: :get do |form| %>
+        <%= form.hidden_field 'date', value: @date %>
+        <%= form.submit 'Gerar PDF', class: "btn btn-md btn-outline-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <table class="table align-middle">
   <tbody>
     <tr><th scope="row" colspan="2"><h2><b><%= t('.input') %><b></h2></th></tr>

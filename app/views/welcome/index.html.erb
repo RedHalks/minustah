@@ -1,7 +1,7 @@
 <% content_for :title, t('.title') %>
 <h3><%= t('.title') %></h3>
 
-<%= form_with url: reports_invoices_paid_path(format: :pdf) , method: :get do |form| %>
+<%= form_with url: reports_invoices_paid_path(format: :html) , method: :get do |form| %>
   <div class="row">
     <div class="col-md-9">
     </div>
@@ -15,7 +15,7 @@
   </div>
 <% end %>
 
-<%= form_with url: reports_cash_flows_monthly_path(format: :pdf) , method: :get do |form| %>
+<%= form_with url: reports_cash_flows_monthly_path(format: :html) , method: :get do |form| %>
   <div class="row">
     <div class="col-md-9">
     </div>

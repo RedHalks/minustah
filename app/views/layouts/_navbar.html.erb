@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container">
-    <%= link_to 'Brand', root_path, class: 'navbar-brand' %>
+    <%= link_to root_path, class: 'navbar-brand' do %>
+    <%= image_tag("RedhawksBrasaoPB.png", height: '38', width: '32') %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
