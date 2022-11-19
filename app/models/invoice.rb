@@ -33,6 +33,14 @@ class Invoice < ApplicationRecord
   validates :category, :value, :reference_month, :reference_year, presence: true
 
   scope :paid, -> { where('cash_flow_id IS NOT NULL') }
+  scope :on_month, lambda { |month = Time.zone.today.month, year = Time.zone.today.year|
+    where(reference_month: month, reference_year: year)
+  }
+  scope :overdue, lambda {
+    where(cash_flow_id: nil)
+      .where('reference_month < :month AND invoices.reference_year = :year OR invoices.reference_year > :year',
+             month: Time.zone.today.month, year: Time.zone.today.year)
+  }
 
   def paid?
     cash_flow_id.present?

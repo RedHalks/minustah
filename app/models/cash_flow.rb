@@ -24,4 +24,8 @@ class CashFlow < ApplicationRecord
   has_many :invoices, dependent: :restrict_with_exception
 
   validates :kind, :category, :value, presence: true
+
+  def self.balance
+    input.sum(:value) - output.sum(:value)
+  end
 end

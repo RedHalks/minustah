@@ -18,6 +18,7 @@ class Member < ApplicationRecord
   include Members::Kind
   include Members::State
 
+  has_many :invoices, dependent: :restrict_with_exception
   belongs_to :person
 
   validates :kind, :state, presence: true
