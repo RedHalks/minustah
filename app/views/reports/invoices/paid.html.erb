@@ -46,7 +46,7 @@
                 <span class="badge bg-danger"><%= t('.not_paid') %></span>
               <% end %>
             <% else %>
-              <% if Date.today.month >= month %>
+              <% if Time.zone.today.month >= month %>
                 <span class="badge bg-secondary"><%= t('.free') %></span>
               <% end %>
             <% end %>

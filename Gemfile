@@ -63,7 +63,9 @@ gem 'ransack', '~> 3.2'
 gem 'pagy', '~> 5.10'
 
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-binary'
+# TODO: Back to the original git when fix the compatibility with ubuntu 22
+gem 'wkhtmltopdf-binary', github: 'zakird/wkhtmltopdf_binary_gem'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

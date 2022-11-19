@@ -1,30 +1,87 @@
 <% content_for :title, t('.title') %>
 <h3><%= t('.title') %></h3>
 
-<%= form_with url: reports_invoices_paid_path(format: :html) , method: :get do |form| %>
-  <div class="row">
-    <div class="col-md-9">
+<div class="row">
+  <div class="col-md-5">
+    <h5>Indicadores</h5>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <b><p class="card-title">Saldo</p></b>
+            <p class="card-text"><%= number_to_currency(CashFlow.balance, locale: :'pt-BR') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <b><p class="card-title">Pagamentos</p></b>
+            <p class="card-text"><%= Invoice.on_month.where('cash_flow_id IS NOT NULL').count %>/<%= Invoice.on_month.count %></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-3">
+    <div class="row">
+      <%
+        date = Time.zone.today.beginning_of_month
+        cash_flow = CashFlow.where('moved_at BETWEEN :begin and :end', begin: date, end: date.end_of_month)
+      %>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <b><p class="card-title">Entrada (Mês)</p></b>
+            <p class="card-text"><%= number_to_currency(cash_flow.select(&:input?).sum(&:value), locale: :'pt-BR') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <b><p class="card-title">Saida (Mês)</p></b>
+            <p class="card-text"><%= number_to_currency(cash_flow.select(&:output?).sum(&:value), locale: :'pt-BR') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <h5>Mensalidades atrasadas</h5>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered align-middle caption-bottom">
+        <thead class="table-light">
+          <tr>
+            <th scope="col"><%= Member.model_name.human %></th>
+            <th scope="col">Meses</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% @overdue_membership_members.each do |member| %>
+            <tr>
+              <td><%= member.name %></td>
+              <td><%= member.invoices.to_a.count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <%= render partial: 'layouts/pagination' %>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <h5>Relatórios</h5>
+    <%= form_with url: reports_invoices_paid_path(format: :html) , method: :get do |form| %>
       <%= form.label 'Mensalidades pagas' , class: 'form-label' %>
       <div class="input-group">
         <%= form.number_field 'year', class: 'form-control', placeholder: 'Ano' %>
         <%= form.submit 'Gerar', formtarget: "_blank", :class  => "btn btn-md btn-outline-primary" %>
       </div>
-    </div>
-  </div>
-<% end %>
-
-<%= form_with url: reports_cash_flows_monthly_path(format: :html) , method: :get do |form| %>
-  <div class="row">
-    <div class="col-md-9">
-    </div>
-    <div class="col-md-3">
+    <% end %>
+    <%= form_with url: reports_cash_flows_monthly_path(format: :html) , method: :get do |form| %>
       <%= form.label 'Demostrativo Mensal' , class: 'form-label' %>
       <div class="input-group">
         <%= form.date_field 'date', class: 'form-control', placeholder: 'M' %>
         <%= form.submit 'Gerar', formtarget: "_blank", class: "btn btn-md btn-outline-primary" %>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
