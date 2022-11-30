@@ -50,9 +50,9 @@ module ReportInteractor
 
       def build_membership(cash_flow)
         cash_flow.invoices.each do |invoice|
-          key = "#{invoice.reference_year}-#{invoice.formated_reference_month}"
+          key = "#{invoice.reference_date.year}-#{invoice.formated_reference_month}"
           context.memberships[key] ||= {
-            label: "#{invoice.formated_reference_month}/#{invoice.reference_year}",
+            label: "#{invoice.formated_reference_month}/#{invoice.reference_date.year}",
             value: 0
           }
           context.memberships[key][:value] += invoice.value

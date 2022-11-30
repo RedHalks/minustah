@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Invoice, type: :model do
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:reference_month) }
-    it { is_expected.to validate_presence_of(:reference_year) }
+    it { is_expected.to validate_presence_of(:reference_date) }
     it { is_expected.to validate_presence_of(:category) }
     it { is_expected.to validate_presence_of(:value) }
   end

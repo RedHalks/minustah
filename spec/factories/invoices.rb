@@ -4,8 +4,9 @@
 #
 #  id              :bigint           not null, primary key
 #  category        :string           not null
-#  reference_month :integer          not null
-#  reference_year  :integer          not null
+#  reference_date  :date
+#  reference_month :integer
+#  reference_year  :integer
 #  value           :float            not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -23,6 +24,7 @@ FactoryBot.define do
     category { Invoice.categories.values.sample }
     reference_month { Time.zone.today.month }
     reference_year { Time.zone.today.year }
+    reference_date { Time.zone.today }
     value { Faker::Number.decimal(r_digits: 2) }
 
     association :member

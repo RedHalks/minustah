@@ -16,8 +16,7 @@ module Members
       default_attr = {
         value: Member.find(params[:member_id]).membership_value,
         category: :membership,
-        reference_month: Time.zone.today.month,
-        reference_year: Time.zone.today.year
+        reference_date: Time.zone.today
       }.merge(params.permit(:member_id).to_h)
 
       @invoice = Invoice.new(default_attr)
@@ -68,7 +67,7 @@ module Members
     end
 
     def permitted_params
-      params.require(:invoice).permit(:category, :value, :reference_month, :reference_year, :cash_flow_id,
+      params.require(:invoice).permit(:category, :value, :reference_date, :cash_flow_id,
                                       :member_id).to_h
     end
   end

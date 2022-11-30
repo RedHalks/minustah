@@ -31,7 +31,7 @@
         <td scope="row"><%= member.name %></td>
         <% (1..12).each do |month| %>
           <td scope="row">
-            <% invoice = @result.invoices.find { |i| i.member_id == member.id && i.reference_month == month }%>
+            <% invoice = @result.invoices.find { |i| i.member_id == member.id && i.reference_date.month == month }%>
             <% if invoice.present? %>
               <% if invoice.paid? %>
                 <%

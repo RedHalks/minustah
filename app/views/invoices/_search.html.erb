@@ -21,12 +21,8 @@
               <%= form_select(:category_eq, invoice_category_options, form)%>
             </div>
             <div class="col-md-6 mb-3">
-              <%= form.label :reference_month_eq, class: 'form-label' %>
-              <%= form_select(:reference_month_eq, (1..12), form)%>
-            </div>
-            <div class="col-md-6 mb-3">
-              <%= form.label :reference_year_eq, class: 'form-label' %>
-              <%= form_select(:reference_year_eq, (2022..2025), form)%>
+              <%= form.label :reference_date_eq, class: 'form-label' %>
+              <%= form.date_field :reference_date, class: 'form-control' %>
             </div>
           </div>
         </div>

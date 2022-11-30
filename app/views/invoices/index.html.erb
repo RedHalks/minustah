@@ -22,8 +22,7 @@
       <tr>
         <th scope="col"><%= Member.model_name.human %></th>
         <th scope="col"><%= Invoice.human_attribute_name('category') %></th>
-        <th scope="col"><%= Invoice.human_attribute_name('reference_month') %></th>
-        <th scope="col"><%= Invoice.human_attribute_name('reference_year') %></th>
+        <th scope="col"><%= Invoice.human_attribute_name('reference_date') %></th>
         <th scope="col"><%= Invoice.human_attribute_name('value') %></th>
         <th scope="col">Pago?</th>
         <th scope="col"><%= t('helpers.actions') %></th>
@@ -34,8 +33,7 @@
         <tr>
           <td><%= invoice.member.name %></td>
           <td><%= Invoice.human_attribute_name("category.#{invoice.category}") %></td>
-          <td><%= invoice.reference_month %></td>
-          <td><%= invoice.reference_year %></td>
+          <td><%= l(invoice.reference_date) %></td>
           <td><%= number_to_currency(invoice.value, locale: :'pt-BR') %></td>
           <td><%= invoice.cash_flow_id.present? ? 'Sim' : 'Não' %></td>
           <td>
