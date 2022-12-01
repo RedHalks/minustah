@@ -60,13 +60,13 @@ module ReportInteractor
       end
 
       def build_other_inputs(cash_flow)
-        key = cash_flow.description || cash_flow.category
+        key = cash_flow.description.present? ? cash_flow.description : cash_flow.category
         context.other_inputs[key] ||= 0
         context.other_inputs[key] += cash_flow.value
       end
 
       def build_other_outputs(cash_flow)
-        key = cash_flow.description || cash_flow.category
+        key = cash_flow.description.present? ? cash_flow.description : cash_flow.category
         context.other_outputs[key] ||= 0
         context.other_outputs[key] += cash_flow.value
       end
