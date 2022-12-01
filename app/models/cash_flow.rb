@@ -25,6 +25,8 @@ class CashFlow < ApplicationRecord
 
   validates :kind, :category, :value, presence: true
 
+  scope :invoiced, -> { not_donation.not_revenue }
+
   def self.balance
     input.sum(:value) - output.sum(:value)
   end

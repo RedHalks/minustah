@@ -17,13 +17,9 @@
       <span class="input-group-text">R$</span>
       <%= form.number_field :value, class: 'form-control' %>
     </div>
-  </div>
+  </div>aaaaa
   <div class="col-md-6 mb-3">
-    <%= form.label :reference_month, class: 'form-label' %>
-    <%= form_select(:reference_month, (1..12), form)%>
-  </div>
-  <div class="col-md-6 mb-3">
-    <%= form.label :reference_year, class: 'form-label' %>
-    <%= form_select(:reference_year, (2022..2025), form)%>
+    <%= form.label :reference_date, class: 'form-label' %>
+    <%= form.date_field :reference_date, class: 'form-control' %>
   </div>
 </div>

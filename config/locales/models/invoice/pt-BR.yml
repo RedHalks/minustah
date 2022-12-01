@@ -10,7 +10,9 @@ pt-BR:
         category: Categoria
         reference_month: Mês de referência
         reference_year: Ano de referência
+        reference_date: Data de referência
         value: Valor
       invoice/category:
         membership: 'Mensalidade'
+        surcharge: 'Taxa extra'
 

@@ -13,8 +13,7 @@ class InvoicesController < AuthenticatedController
   def new
     default_attr = {
       category: :membership,
-      reference_month: Time.zone.today.month,
-      reference_year: Time.zone.today.year
+      reference_date: Time.zone.today
     }
 
     @invoice = Invoice.new(default_attr)
@@ -65,7 +64,7 @@ class InvoicesController < AuthenticatedController
   end
 
   def permitted_params
-    params.require(:invoice).permit(:category, :value, :reference_month, :reference_year, :cash_flow_id,
+    params.require(:invoice).permit(:category, :value, :reference_date, :cash_flow_id,
                                     :member_id).to_h
   end
 end

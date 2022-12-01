@@ -4,8 +4,9 @@
 #
 #  id              :bigint           not null, primary key
 #  category        :string           not null
-#  reference_month :integer          not null
-#  reference_year  :integer          not null
+#  reference_date  :date
+#  reference_month :integer
+#  reference_year  :integer
 #  value           :float            not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -24,22 +25,18 @@ class Invoice < ApplicationRecord
   belongs_to :member
   belongs_to :cash_flow, optional: true
 
-  validates :reference_month, :reference_year, numericality: { only_integer: true }
-  validates :reference_month, numericality: { in: 1..12 }
-  validates :reference_year, numericality: { greater_than_or_equal_to: 2022 }
-  validates :member_id, uniqueness: { scope: %i[reference_month reference_year],
-                                      message: 'should happen once per month' }
-
-  validates :category, :value, :reference_month, :reference_year, presence: true
+  validates :category, :value, :reference_date, presence: true
 
   scope :paid, -> { where('cash_flow_id IS NOT NULL') }
-  scope :on_month, lambda { |month = Time.zone.today.month, year = Time.zone.today.year|
-    where(reference_month: month, reference_year: year)
+  scope :on_month, lambda { |date = Time.zone.today|
+    where('reference_date BETWEEN :begin AND :end', begin: date.beginning_of_month, end: date.end_of_month)
+  }
+  scope :on_year, lambda { |date = Time.zone.today|
+    where('reference_date BETWEEN :begin AND :end', begin: date.beginning_of_year, end: date.end_of_year)
   }
   scope :overdue, lambda {
     where(cash_flow_id: nil)
-      .where('reference_month < :month AND invoices.reference_year = :year OR invoices.reference_year > :year',
-             month: Time.zone.today.month, year: Time.zone.today.year)
+      .where('reference_date < :date', date: Time.zone.today.beginning_of_month)
   }
 
   def paid?
@@ -47,6 +44,6 @@ class Invoice < ApplicationRecord
   end
 
   def formated_reference_month
-    format('%02d', reference_month)
+    format('%02d', reference_date.month)
   end
 end

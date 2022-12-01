@@ -4,7 +4,8 @@ module Invoices
 
     included do
       enum category: {
-        membership: 'membership'
+        membership: 'membership',
+        surcharge: 'surcharge'
       }
     end
   end

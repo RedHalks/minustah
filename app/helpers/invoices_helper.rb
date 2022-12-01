@@ -1,6 +1,6 @@
 module InvoicesHelper
   def invoice_cash_flows(member_id)
-    CashFlow.input.membership.where(member_id:).map do |cash_flow|
+    CashFlow.input.invoiced.where(member_id:).map do |cash_flow|
       ["#{l(cash_flow.moved_at, format: :long)} - R$ #{cash_flow.value.to_f.round(2)}", cash_flow.id]
     end
   end

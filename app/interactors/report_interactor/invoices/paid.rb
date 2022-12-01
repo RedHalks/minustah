@@ -4,7 +4,8 @@ module ReportInteractor
       include Interactor
 
       def call
-        context.invoices = Invoice.includes(:member).where(reference_year: context.year)
+        context.invoices = Invoice.includes(:member)
+                                  .membership.on_year(Date.new(context.year.to_i, 1, 1))
       end
     end
   end
