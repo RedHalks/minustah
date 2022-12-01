@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_223422) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_092618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_223422) do
     t.bigint "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["member_id"], name: "index_cash_flows_on_member_id"
   end
 

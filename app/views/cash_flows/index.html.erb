@@ -22,6 +22,7 @@
         <th scope="col"><%= CashFlow.human_attribute_name('category') %></th>
         <th scope="col"><%= CashFlow.human_attribute_name('moved_at') %></th>
         <th scope="col"><%= CashFlow.human_attribute_name('value') %></th>
+        <th scope="col"><%= CashFlow.human_attribute_name('description') %></th>
         <th scope="col"><%= t('helpers.actions') %></th>
       </tr>
     </thead>
@@ -33,6 +34,7 @@
           <td><%= CashFlow.human_attribute_name("category.#{cash_flow.category}") %></td>
           <td><%= l(cash_flow.moved_at, format: :long) %></td>
           <td><%= number_to_currency(cash_flow.value, locale: :'pt-BR')  %></td>
+          <td><small><%= cash_flow.description %></small></td>
           <td>
             <div class="btn-toolbar" role="toolbar">
               <%= link_to edit_cash_flow_path(cash_flow.id), class: 'btn btn-outline-primary btn-sm me-1' do %>

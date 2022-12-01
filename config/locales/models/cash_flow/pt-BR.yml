@@ -11,6 +11,7 @@ pt-BR:
         kind: Tipo
         value: Valor
         moved_at: Data
+        description: Descrição
       cash_flow/kind:
         input: 'Entrada'
         output: 'Saida'

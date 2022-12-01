@@ -59,6 +59,6 @@ class CashFlowsController < AuthenticatedController
   end
 
   def permitted_params
-    params.require(:cash_flow).permit(:category, :kind, :value, :member_id, :moved_at).to_h
+    params.require(:cash_flow).permit(:category, :kind, :value, :member_id, :moved_at, :description).to_h
   end
 end
