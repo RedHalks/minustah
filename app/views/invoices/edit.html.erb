@@ -3,5 +3,5 @@
 
 <%= form_with model: @invoice, method: :patch do |form| %>
   <%= render partial: 'form', locals: { form: form } %>
-  <%= form.submit t('helpers.submit.update', model: CashFlow.model_name.human), :class  => "btn btn-md btn-primary" %>
+  <%= form.submit t('helpers.submit.update', model: Invoice.model_name.human), :class  => "btn btn-md btn-primary" %>
 <% end %>
